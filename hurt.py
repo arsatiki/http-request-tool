@@ -38,8 +38,8 @@ def main():
     url = URL_RE.match(sys.argv[1])
     # httplib parses 'foo:443' port specs
 
-    Proto = HTTPSConnection if url.group(0) == "https" else HTTPConnection
-    connection = Proto(url.group(1))
+    Proto = HTTPSConnection if url.group(1) == "https" else HTTPConnection
+    connection = Proto(url.group(2))
         
     loop(connection, url.group(3))
 
